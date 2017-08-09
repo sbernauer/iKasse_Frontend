@@ -6,22 +6,22 @@ var app = {
     },
 
     onDeviceReady: function() {
+
         $("#anmelden").on("click", function() {
-			//$("#wrongCredentials").show(500);
 
         	var url = urlBackend + "/rest/bedienungen/login?userName=" + $("#userName").val() + "&password=" + $("#password").val();
-
         	var request = new XMLHttpRequest();
         	request.open("GET", url, true);
 
 			request.onreadystatechange = function reveicedData() {
 				if (request.readyState == 4) { // Daten empfangen
 					var success = request.responseText;
-					if(success == true) {
-						window.location = "/main";
+					if(success) {
+						window.location = "main.html";
 					} else {
 						$("#wrongCredentials").show();
 					}
+                    alert("Durchlaufen");
 				}
 			};
 

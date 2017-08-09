@@ -11,7 +11,7 @@
     <author email="bernauerse@web.de">
         Sebastian Bernauer
     </author>
-    <content src="login.html" />
+    <content src="main.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -21,4 +21,6 @@
     <allow-intent href="geo:*" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
+    <preference name="Fullscreen" value="true" />
+    <preference name="SuppressesLongPressGesture" value="true" />
 </widget>

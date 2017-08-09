@@ -1,0 +1,92 @@
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 1.0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-user-select: none;
+}
+
+html, body, .main {
+    height: 100%;
+    width: 100%
+}
+
+body {
+    background-color: #E4E4E4;
+    background-attachment: fixed;
+    padding: 20px;
+}
+
+body * {
+    font-size: 60px;
+}
+
+body, body * {
+    box-sizing: border-box;
+}
+
+#content {
+    width: 100%;
+    margin-top: 20px;
+    white-space: nowrap;
+    overflow: scroll;
+}
+
+#header {
+    padding: 10px;
+    width: 100%;
+    background: red;
+}
+
+#footer {
+    background-color: #E4E4E4;
+    box-sizing: border-box;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    white-space: nowrap;
+    padding: 40px 0px 10px 0px;
+}
+
+#footer > div {
+    white-space: normal;
+    width: 50%;
+    display: inline-block;
+}
+
+#footer_left, #footer_right > * {
+    width: 100%;
+    font-weight: bold;
+}
+
+.kachel {
+    background: orange;
+    margin: 3px 5px 20px 5px;
+    padding: 5px;
+    width: calc(25% - 10px);
+    float: left;
+    overflow: hidden;
+
+    opacity: 0.55;
+}
+
+.kachel p {
+    padding: 0px;
+    margin: 0px;
+}
+
+.kachel .description {
+    font-size: 47px;
+    word-break: break-all;
+    white-space: normal;
+    width: 100%;
+    height: 115px;
+}
+
+.kachel .price {
+    font-size: 47px;
+    float: left;
+}
+
+.kachel .amount {
+    font-size: 65px;
+    float: right;
+}
