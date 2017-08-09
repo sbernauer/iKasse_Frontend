@@ -1,0 +1,44 @@
+
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 1.0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    background-color: #E4E4E4;
+    background-attachment: fixed;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+.main {
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:400px;                   /* text area height */
+    width:750px;                   /* text area width */
+    padding: 0px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-200px 0px 0px -375px;  /* offset vertical: half of image height and text area height */
+}
+
+.main * {
+    font-size: 50px;
+}
+
+.main > * {
+    width: 100%;
+    margin-top: 25px;
+    padding: 7px;
+}
+
+#anmelden {
+    font-weight: bold;
+}
+
+#wrongCredentials {
+    color: red;
+    text-align: center;
+    display: none;
+}
