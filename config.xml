@@ -7,7 +7,7 @@
     <author email="bernauerse@web.de">
         Sebastian Bernauer
     </author>
-    <content src="main.html" />
+    <content src="login.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />

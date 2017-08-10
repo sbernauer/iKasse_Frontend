@@ -8,8 +8,8 @@ var app = {
     onDeviceReady: function() {
 
         $("#anmelden").on("click", function() {
-
-        	var url = urlBackend + "/rest/bedienungen/login?userName=" + $("#userName").val() + "&password=" + $("#password").val();
+            var userName = $("#userName").val();
+        	var url = urlBackend + "/rest/bedienungen/login?userName=" + userName + "&password=" + $("#password").val();
         	var request = new XMLHttpRequest();
         	request.open("GET", url, true);
 
@@ -17,11 +17,11 @@ var app = {
 				if (request.readyState == 4) { // Daten empfangen
 					var success = request.responseText;
 					if(success) {
+                        localStorage.userName = userName;
 						window.location = "main.html";
 					} else {
 						$("#wrongCredentials").show();
 					}
-                    alert("Durchlaufen");
 				}
 			};
 

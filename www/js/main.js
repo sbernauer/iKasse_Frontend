@@ -79,12 +79,16 @@ function registerListeners() {
     });
 
     $("#bestellen").on("click", function() {
+
+        window.location = "main.html";
+        return;
+
         var bestellung = {};
-        bestellung.bedienung = "TODO";
-        bestellung.time = "TODO";
+        bestellung.userName = localStorage.userName;
+        bestellung.time = new Date().toLocaleString();
         bestellung.table = "TODO";
 
-        var data = [];
+        var orders = [];
 
         $(".kachel").filter(function(index, element) {
             return ($(element).find(".amount").text()) != "0";
@@ -92,10 +96,26 @@ function registerListeners() {
             var dataset = {};
             dataset.id = $(element).data("id");
             dataset.amount = $(element).find(".amount").text() * 1;
-            data.push(dataset);
+            orders.push(dataset);
         });
 
-        bestellung.data = data;
+        bestellung.orders = orders;
+
+        $.ajax({
+          type: "POST",
+          url: urlBackend + "/rest/bestellungen/add",
+          data: JSON.stringify(bestellung),
+          success: function(response) {
+            if(response) {
+                alert("Bestellt");
+                resetContent();
+            } else {
+                alert("Fehler bei Bestellung. Bitte starte die App neu und probiere es erneut.")
+            }
+          },
+          contentType: "application/json"
+        });
+
         console.log(JSON.stringify(bestellung));
     });
 }
@@ -108,7 +128,6 @@ function calculateTotalPrice() {
     }).each(function(index, element) {
         var priceWithEuro = $(element).find(".price").text();
         var price = priceWithEuro.substring(0, priceWithEuro.length - 2);
-        //console.log($(element).find(".amount").text() + ",  " + price);
         totalPrice += $(element).find(".amount").text() * price;
     });
 }
@@ -118,7 +137,12 @@ function displayTotalPrice() {
     $("#footer_left").text(totalPrice + " €");
 }
 
-//Only for firefox
-window.onload = function() {
-    app.onDeviceReady();
+function resetContent() {
+    $(".kachel .amount").text("0").css("opacity", 0.55);
+    displayTotalPrice();
 }
+
+//Only for firefox
+/*window.onload = function() {
+    app.onDeviceReady();
+}*/
