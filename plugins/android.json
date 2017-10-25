@@ -12,6 +12,12 @@
         },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "de.sebe.iKasse"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "de.sebe.iKasse"
+        },
+        "cordova-plugin-x-toast": {
+            "PACKAGE_NAME": "de.sebe.iKasse"
         }
     },
     "dependent_plugins": {}
